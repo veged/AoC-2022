@@ -1,17 +1,6 @@
 // https://adventofcode.com/2022/day/3
 
-import { open } from 'node:fs/promises'
-import { describe, it } from 'node:test'
-import assert from 'node:assert/strict'
-
-function testFunction(f, as) {
-  describe(`Test function ${f.name}`, () => {
-    for(const [i, o] of as)
-      it(
-        `for ${JSON.stringify(i)} should return ${JSON.stringify(o)}`,
-        () => assert.strictEqual(f(i), o))
-  })
-}
+import { testFunction, forEachLine } from './util.mjs'
 
 function getFailed(l) {
   let i = l.length
@@ -93,14 +82,14 @@ testFunction(findCommon, [
 let res1 = 0, res2 = 0
 const group = []
 
-for await (const l of (await open('3.txt')).readLines()) {
+await forEachLine('3.txt', (l) => {
   res1 += getPriority(getFailed(l))
   group.push(l)
   if(group.length === 3) {
     res2 += getPriority(findCommon(group))
     group.length = 0
   }
-}
+})
 
 console.log('Part One: ', res1)
 console.log('Part Two: ', res2)

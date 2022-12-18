@@ -1,6 +1,6 @@
 // https://adventofcode.com/2022/day/2
 
-import { open } from 'node:fs/promises'
+import { forEachLine } from './util.mjs'
 
 const RULES1 = {
     A: {
@@ -39,10 +39,10 @@ const RULES1 = {
 
 let res1 = 0, res2 = 0
 
-for await (const [p1, _, p2] of (await open('2.txt')).readLines()) {
+await forEachLine('2.txt', ([p1, _, p2]) => {
   res1 += RULES1[p1][p2]
   res2 += RULES2[p1][p2]
-}
+})
 
 console.log('Part One: ', res1)
 console.log('Part Two: ', res2)
