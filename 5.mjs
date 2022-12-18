@@ -32,7 +32,6 @@ await forEachLine('5.txt', (l) => {
     move2(n, f - 1, t - 1)
   } else
     parsed.push(l + ' ')
-
 })
 
 function joinLast(as) { return as.map((a) => a.at(-1)).join('') }
