@@ -17,4 +17,6 @@ export function testFunction(f, as) {
   })
 }
 
+export function toNumbers(a) { return a.map(Number).filter((x) => !isNaN(x)) }
+export function matchToNumbers(s, r) { return toNumbers(s.match(r)) }
 

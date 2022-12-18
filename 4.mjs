@@ -1,6 +1,6 @@
 // https://adventofcode.com/2022/day/4
 
-import { testFunction, forEachLine } from './util.mjs'
+import { testFunction, forEachLine, matchToNumbers } from './util.mjs'
 
 function fullyContains([a1, a2, b1, b2]) {
   return Math.abs(Math.sign(a1 - b1) + Math.sign(a2 - b2)) < 2
@@ -41,7 +41,7 @@ testFunction(overlaps, [
 let res1 = 0, res2 = 0
 
 await forEachLine('4.txt', (l) => {
-  const d = l.match(/^(\d+)-(\d+),(\d+)-(\d+)$/).map(Number).filter((x) => !isNaN(x))
+  const d = matchToNumbers(l, /^(\d+)-(\d+),(\d+)-(\d+)$/)
   res1 += fullyContains(d)
   res2 += overlaps(d)
 })

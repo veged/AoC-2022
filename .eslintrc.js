@@ -34,6 +34,7 @@ module.exports = {
     'no-unused-vars': [
       'error',
       { 'destructuredArrayIgnorePattern': '^_' }
-    ]
+    ],
+    'no-cond-assign': 'off'
   }
 }
