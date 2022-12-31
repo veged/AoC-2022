@@ -38,6 +38,10 @@ module.exports = {
       'error',
       { 'destructuredArrayIgnorePattern': '^_' }
     ],
-    'no-cond-assign': 'off'
+    'no-cond-assign': 'off',
+    'space-in-parens': ['error', 'never'],
+    'array-bracket-spacing': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
+    'computed-property-spacing': ['error', 'never']
   }
 }
